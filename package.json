@@ -1,0 +1,1 @@
+{"dependencies":{"discord.js":"^14.16.3","dotenv":"^16.4.5"},"description":"Daily tarot fortune bot for Discord (EN/JP), reusing the SHIMA tarot dictionary data.","main":"index.js","name":"discord-tarot-bot","scripts":{"start":"node index.js","test":"node test.js"},"type":"commonjs","version":"1.0.0"}
