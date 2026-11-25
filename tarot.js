@@ -64,7 +64,7 @@ function buildResult(card, reversed, lang) {
     meaning: shorten(meaning),
     advice: card.advice || "",
     url: cardUrl(card, lang),
-    image: `${IMAGE_BASE}/${card.slug}.jpg`,
+    image: `${IMAGE_BASE}/${reversed ? "framed-rev" : "framed"}/${card.slug}.jpg`,
     lang,
   };
 }
