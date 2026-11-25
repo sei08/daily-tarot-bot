@@ -65,16 +65,20 @@ const TEXT = {
 
 function toEmbed(result, kind) {
   const t = TEXT[result.lang];
+  const siteName =
+    result.lang === "ja" ? "SHIMAのタロット辞典" : "SHIMA Tarot Dictionary";
   const embed = new EmbedBuilder()
     .setColor(result.reversed ? 0x8e6cc8 : 0xf2b134)
     .setTitle(
-      `${result.symbol} ${result.name} — ${result.reversed ? t.reversed : t.upright}`
+      `${result.symbol} ${result.name} — ${result.reversed ? t.reversed + " 🔄" : t.upright}`
     )
+    .setURL(result.url)
     .setDescription(result.meaning)
+    .setImage(result.image)
     .addFields(
       { name: t.keywords, value: result.keywords.join(" / ") },
       ...(result.advice ? [{ name: t.advice, value: result.advice }] : []),
-      { name: t.more, value: result.url }
+      { name: t.more, value: `[${siteName}](${result.url})` }
     )
     .setFooter({ text: t.footer });
   embed.setAuthor({ name: kind === "daily" ? t.dailyTitle : t.drawTitle });

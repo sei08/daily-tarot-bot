@@ -9,6 +9,10 @@ const SITES = {
   ja: "https://shima-tarot-jiten.pages.dev",
 };
 
+// Card artwork (Rider-Waite) is hosted on the English dictionary site;
+// the Japanese site carries no image files, so both languages use it.
+const IMAGE_BASE = "https://shima-tarot-dictionary.pages.dev/images";
+
 function deck(lang) {
   return lang === "ja" ? cardsJp : cardsEn;
 }
@@ -60,6 +64,7 @@ function buildResult(card, reversed, lang) {
     meaning: shorten(meaning),
     advice: card.advice || "",
     url: cardUrl(card, lang),
+    image: `${IMAGE_BASE}/${card.slug}.jpg`,
     lang,
   };
 }
